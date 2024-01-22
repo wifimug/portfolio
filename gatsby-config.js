@@ -2,6 +2,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: `/Hobby`,
   siteMetadata: {
     title: `portfolio`,
     author: `yaxin ding`,

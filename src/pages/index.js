@@ -84,7 +84,6 @@ const IndexPage = ({data}) => {
                   return (
                     <div className="blog-post-preview" key={post.id}>
                       <div class="blog-post-image-container">
-                      <StaticImage src={post.frontmatter.thumbnail.childImageSharp.gatsbyImageData.images.src} class="post-icon"/>
                       <GatsbyImage image={getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData)} class="post-icon"/>
                       </div>
                       <div className="blog-content-container"> 
