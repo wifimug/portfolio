@@ -79,7 +79,7 @@ const IndexPage = ({data}) => {
             <div className="blog-posts-container">
               <div className="blog-posts">
               {posts
-                .filter(post => post.node.frontmatter.title.length > 0)
+                .filter(post => post.node.frontmatter.featured)
                 .map(({ node: post }) => {
                   return (
                     <div className="blog-post-preview" key={post.id}>
@@ -101,12 +101,39 @@ const IndexPage = ({data}) => {
                       </div>                    
                   )
                 })}
+                
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+      <div className="lower-page-container">
+        <div className="tech-stack-container">
+          
+          <h2> Tech Stack</h2>
+          <h3>Languages</h3>
+          <ul>
+            <li>Python</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>Haskell</li>
+            <li>Flutter</li>
+            <li>TypeScript</li>
+          </ul>
+
+          <h3>Dev Tools</h3>
+          <ul>
+            <li>Google Cloud Platform (GCP)</li>
+            <li>Amazon Web Services (AWS)</li>
+            <li>GitHub</li>
+            <li>GitLab</li>
+            <li>Jira</li>
+            <li>Confluence</li>
+            <li>Docker</li>
+          </ul>
+        </div>
+      </div>
+
       </Layout>
     </>
   )
@@ -125,6 +152,7 @@ export const pageQuery = graphql`
             date
             path
             skills
+            featured
             thumbnail{
               childImageSharp {
                 gatsbyImageData(width: 800)

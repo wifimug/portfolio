@@ -3,13 +3,43 @@
 
 .navbar-color {
     color: var(--cinereous);
-    height: 80px;
+    height: 75px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
     margin-left: auto;
     width: 100%;
-    display: auto;
     animation: 1.5s ease-out 0s 1 slideInFromLeft;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--platinum);
+    border-radius: 10px;
+    
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--tea-rose-red);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    animation: rounded 2s ease-out;
+    background: var(--cherryblossom);
+    border-radius: 10px;
+  }
+
+@keyframes rounded {
+    0% {
+        border-radius: 0;
+        background-color: var(--tea-rose-red);
+    }
+    100% {
+        border-radius: 10px;
+        background-color: var(--cherryblossom);
+    }
 }
 
 @keyframes slideInFromLeft {
@@ -23,13 +53,10 @@
     }
   }
 
-
 .navbar-links {
     display: inline;
     font-size: larger;
-    position: absolute;
 }
-
 
 .navbar-links li h1 {
     display: inline;
@@ -82,14 +109,16 @@ a:visited {
 
 .right-container {
     padding: 20px;
+    width: 60%;
 }
 
 
-.column-container:after {
+.columns-containers:after {
     content: "";
     display: table;
     clear: both;
 }
+
 
 .left-container-txt {
     padding: 20px;
@@ -114,6 +143,7 @@ a:visited {
 }
 
 .right-container {
+    position: relative;
     float: right;
     width: 61%;
     border-radius: 20px;    
@@ -169,12 +199,12 @@ a:visited {
 }
 
 .blog-post-preview:hover .blog-content-container {
-    transform: translateY(-40px);
+    transform: translateY(-60px);
     transition: 0.5s;
 }
 
 .blog-post-preview:hover .blog-post-image-container {
-    transform: translateY(-40px);
+    transform: translateY(-60px);
     transition: 0.5s;
 }
 .blog-post-image-container {
@@ -207,4 +237,18 @@ a:visited {
     flex-wrap: wrap;
     text-wrap: wrap;
     font-size: 10px;
+}
+
+
+
+.lower-page-container{
+    padding-top: 600px;
+}
+
+.tech-stack-container {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cinereous);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }

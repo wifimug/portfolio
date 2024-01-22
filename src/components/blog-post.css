@@ -1,0 +1,25 @@
+@import url(./styles.css);
+
+.blog-post-container {
+    display: flex;
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cinereous);
+    padding: 40px;
+}
+
+.left-column {
+    flex: 50%;
+}
+
+.right-column {
+    flex: 50%;
+    background-color: var(--snow);
+    padding: 20px;
+    border-radius: 20px 0 10px 0;
+    box-shadow: 5px 5px var(--tea-rose-red);
+}
+
+.right-column h1 {
+    color: var(--cherryblossom);
+}

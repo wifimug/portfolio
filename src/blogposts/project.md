@@ -2,8 +2,9 @@
 path: "/project/"
 date: 21/01/2024
 title: "Mobile Video App"
-skills: ["Python", "GitHub", "Docker", "Stable Diffusion"]
-thumbnail: "../images/icon.png"
+skills: ["Flutter", "GCP", "SonarQube", "Android Studio", "NodeJS"]
+thumbnail: "../images/mobileapp.jpg"
+featured: true
 ---
 
-Built a mobile app.
+An asynchronous mobile conferencing app, inspired by TikTok.
