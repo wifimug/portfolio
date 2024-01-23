@@ -5,12 +5,12 @@ import "./layout.css";
 export const NavBar = () => {
 
     return(
-      <div class="navbar-color">
-        <div class="navbar-links">
+      <div className="navbar-color">
+        <div className="navbar-links">
           
           <ul>
             <li><Link to="/"><h1>portfolio</h1></Link></li>
-            <li><Link to="/about">yaxin</Link></li>
+            <li><Link to="/about">ding</Link></li>
           </ul>
           
           

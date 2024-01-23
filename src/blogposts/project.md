@@ -1,7 +1,7 @@
 ---
 path: "/project/"
 date: 21/01/2024
-title: "Mobile Video App"
+title: "Async Discussions"
 skills: ["Flutter", "GCP", "SonarQube", "Android Studio", "NodeJS"]
 thumbnail: "../images/mobileapp.jpg"
 featured: true

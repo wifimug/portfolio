@@ -2,57 +2,8 @@ import * as React from "react"
 import { NavBar } from "../components/navbar"
 import Layout from "../components/layout"
 import { StaticImage } from "gatsby-plugin-image"
-import { Link, graphql } from "gatsby"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link, graphql, withPrefix } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
-
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
 
 const IndexPage = ({data}) => {
   const { edges: posts } = data.allMarkdownRemark
@@ -62,37 +13,39 @@ const IndexPage = ({data}) => {
       <NavBar></NavBar>
       <Layout>
   
-      <div class="columns-container">
-        <div class="left-container">
-          <StaticImage src="../images/yding.jpg" alt="Creator of this site" class="profile-pic"/>
-          <div class="left-container-txt">
+      <div className="columns-container">
+        <div className="left-container">
+          <StaticImage src="../images/yding.jpg" alt="Creator of this site" className="profile-pic"/>
+          <div className="left-container-txt">
             <p>
-              A collection of projects made by Yaxin Ding -
+              A collection of projects made by Barbara Ding -
               MSc Software Systems Engineering graduate from UCL.
             </p>
           </div>
         </div>
-        <div class="right-container">
-          <div class="right-container-txt">
+        <div className="right-container">
+          <div className="right-container-txt">
           
-            <h3>Favourites ♡<FontAwesomeIcon icon="fa-solid fa-thumbtack" /></h3>
+            <h3>Favourites ♡</h3>
             <div className="blog-posts-container">
               <div className="blog-posts">
               {posts
-                .filter(post => post.node.frontmatter.featured)
+                .filter(post => post.node.frontmatter.featured === true)
                 .map(({ node: post }) => {
                   return (
                     <div className="blog-post-preview" key={post.id}>
-                      <div class="blog-post-image-container">
-                      <GatsbyImage image={getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData)} class="post-icon"/>
+                      <div className="blog-post-image-container">
+                        {/* {console.log(post.frontmatter.thumbnail.childImageSharp.gatsbyImageData.images.fallback.src)} */}
+                      {/* <StaticImage src={post.frontmatter.thumbnail} alt="image" className="post-icon"/> */}
+                      <GatsbyImage image={withPrefix(getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData))} className="post-icon" alt="image"/>
                       </div>
                       <div className="blog-content-container"> 
                       <h1>
                         <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                       </h1>
-                      <div class="tech-pills">
+                      <div className="tech-pills">
                         {post.frontmatter.skills.map((item, index) => {
-                          return <p class="pill"> {item} </p>
+                          return <p className="pill"> {item} </p>
                         })}
                       </div>
                         
@@ -107,31 +60,63 @@ const IndexPage = ({data}) => {
           </div>
         </div>
       </div>
+      
       <div className="lower-page-container">
-        <div className="tech-stack-container">
-          
-          <h2> Tech Stack</h2>
-          <h3>Languages</h3>
-          <ul>
-            <li>Python</li>
-            <li>Java</li>
-            <li>JavaScript</li>
-            <li>Haskell</li>
-            <li>Flutter</li>
-            <li>TypeScript</li>
-          </ul>
-
-          <h3>Dev Tools</h3>
-          <ul>
-            <li>Google Cloud Platform (GCP)</li>
-            <li>Amazon Web Services (AWS)</li>
-            <li>GitHub</li>
-            <li>GitLab</li>
-            <li>Jira</li>
-            <li>Confluence</li>
-            <li>Docker</li>
-          </ul>
+        <div className="down-arrow-container">
+          <div className="down-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" strokeWidth="1.5" viewBox="0 0 24 24" stroke="currentColor" className="down-arrow-svg">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </div>
         </div>
+      
+      
+        <h2 className="tech-stack-title"> Tech Stack</h2>
+          <div className="tech-stack-container">
+            <div className="tech-stack-flex-item">
+              <div className="languages-list">
+                <h3>Languages</h3>
+                <ul>
+                  <li>Python</li>
+                  <li>Java</li>
+                  <li>JavaScript</li>
+                  <li>Ruby</li>
+                  <li>Haskell</li>
+                  <li>Flutter</li>
+                  <li>TypeScript</li>
+                </ul>
+              </div>
+            </div>
+            <div className="tech-stack-flex-item">
+              <div className="devtools-list">
+                <h3>Dev Tools</h3>
+                <ul>
+                  <li>Google Cloud Platform (GCP)</li>
+                  <li>Amazon Web Services (AWS)</li>
+                  <li>GitHub</li>
+                  <li>GitLab</li>
+                  <li>Jira</li>
+                  <li>Confluence</li>
+                  <li>Docker</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="tech-stack-flex-item">
+              <div className="skills-list">
+                <h3>Skills</h3>
+                <ul>
+                  <li>English (Fluent)</li>
+                  <li>Chinese - Mandarin (Fluent)</li>
+                  <li>Cooking</li>
+                  <li>Digital Art</li>
+                  <li>Piano</li>
+                  <li>Violin</li>
+                  <li>Sleeping</li>
+                </ul>
+              </div>
+            </div>
+          </div>
       </div>
 
       </Layout>
@@ -145,7 +130,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 250)
+          excerpt(pruneLength: 200)
           id
           frontmatter {
             title
@@ -153,7 +138,7 @@ export const pageQuery = graphql`
             path
             skills
             featured
-            thumbnail{
+            thumbnail {
               childImageSharp {
                 gatsbyImageData(width: 800)
               }
