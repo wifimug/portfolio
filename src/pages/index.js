@@ -1,5 +1,4 @@
 import * as React from "react"
-import { NavBar } from "../components/navbar"
 import Layout from "../components/layout"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link, graphql, withPrefix } from "gatsby"
@@ -10,7 +9,6 @@ const IndexPage = ({data}) => {
   return (
     <>
       
-      <NavBar></NavBar>
       <Layout>
   
       <div className="columns-container">
@@ -34,24 +32,25 @@ const IndexPage = ({data}) => {
                 .map(({ node: post }) => {
                   return (
                     <div className="blog-post-preview" key={post.id}>
-                      <div className="blog-post-image-container">
-                        {/* {console.log(post.frontmatter.thumbnail.childImageSharp.gatsbyImageData.images.fallback.src)} */}
-                      {/* <StaticImage src={post.frontmatter.thumbnail} alt="image" className="post-icon"/> */}
-                      <GatsbyImage image={withPrefix(getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData))} className="post-icon" alt="image"/>
-                      </div>
-                      <div className="blog-content-container"> 
-                      <h1>
-                        <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                      </h1>
-                      <div className="tech-pills">
-                        {post.frontmatter.skills.map((item, index) => {
-                          return <p className="pill"> {item} </p>
-                        })}
-                      </div>
+                      <Link to={post.frontmatter.path}>
+                        <div className="blog-post-image-container">
+                          <GatsbyImage image={withPrefix(getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData))} className="post-icon" alt="image"/>
+                        </div>
+                        <div className="blog-content-container"> 
+                          <h1>
+                            <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+                          </h1>
+                        <div className="tech-pills">
+                          {post.frontmatter.skills.map((item, index) => {
+                            return <p className="pill"> {item} </p>
+                          })}
+                        </div>
+                          
+                        <p>{post.excerpt}</p>
+                        </div>
                         
-                      <p>{post.excerpt}</p>
-                    </div>
-                      </div>                    
+                      </Link>
+                    </div>                    
                   )
                 })}
                 
@@ -93,8 +92,7 @@ const IndexPage = ({data}) => {
                 <ul>
                   <li>Google Cloud Platform (GCP)</li>
                   <li>Amazon Web Services (AWS)</li>
-                  <li>GitHub</li>
-                  <li>GitLab</li>
+                  <li>Git</li>
                   <li>Jira</li>
                   <li>Confluence</li>
                   <li>Docker</li>
@@ -106,8 +104,8 @@ const IndexPage = ({data}) => {
               <div className="skills-list">
                 <h3>Skills</h3>
                 <ul>
-                  <li>English (Fluent)</li>
-                  <li>Chinese - Mandarin (Fluent)</li>
+                  <li>English</li>
+                  <li>Chinese - Mandarin</li>
                   <li>Cooking</li>
                   <li>Digital Art</li>
                   <li>Piano</li>
@@ -118,6 +116,41 @@ const IndexPage = ({data}) => {
             </div>
           </div>
       </div>
+
+      {/* <div className="projects-page-container">
+        <h2> Projects </h2>
+        <div className="projects-container">
+          <div className="projects">
+          {posts
+                .map(({ node: post }) => {
+                  return (
+                    <div className="blog-post-preview" key={post.id}>
+                      <Link to={post.frontmatter.path}>
+                        <div className="blog-post-image-container">
+                          <GatsbyImage image={withPrefix(getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData))} className="post-icon" alt="image"/>
+                        </div>
+                        <div className="blog-content-container"> 
+                          <h1>
+                            <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+                          </h1>
+                        <div className="tech-pills">
+                          {post.frontmatter.skills.map((item, index) => {
+                            return <p className="pill"> {item} </p>
+                          })}
+                        </div>
+                          
+                        <p>{post.excerpt}</p>
+                        </div>
+                        
+                      </Link>
+                    </div>                    
+                  )
+                })}
+            
+          </div> */}
+
+        {/* </div>
+      </div> */}
 
       </Layout>
     </>

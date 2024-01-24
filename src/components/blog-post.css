@@ -9,13 +9,14 @@
 }
 
 .left-column {
-    flex: 50%;
+    flex: 40%;
 }
 
 .right-column {
-    flex: 50%;
+    flex: 40%;
     background-color: var(--snow);
-    padding: 20px;
+    padding: 2em;
+    margin-right: 5%;
     border-radius: 20px 0 10px 0;
     box-shadow: 5px 5px var(--tea-rose-red);
 }
