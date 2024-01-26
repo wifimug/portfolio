@@ -17,7 +17,7 @@ const IndexPage = ({data}) => {
           <div className="left-container-txt">
             <p>
               A collection of projects made by Barbara Ding -
-              MSc Software Systems Engineering graduate from UCL.
+               develops software for fun and for work.
             </p>
           </div>
         </div>
@@ -117,14 +117,14 @@ const IndexPage = ({data}) => {
           </div>
       </div>
 
-      {/* <div className="projects-page-container">
-        <h2> Projects </h2>
+      <div className="projects-page-container">
+        <h2> More Projects </h2>
         <div className="projects-container">
           <div className="projects">
           {posts
                 .map(({ node: post }) => {
                   return (
-                    <div className="blog-post-preview" key={post.id}>
+                    <div className="project" key={post.id}>
                       <Link to={post.frontmatter.path}>
                         <div className="blog-post-image-container">
                           <GatsbyImage image={withPrefix(getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData))} className="post-icon" alt="image"/>
@@ -147,10 +147,10 @@ const IndexPage = ({data}) => {
                   )
                 })}
             
-          </div> */}
+          </div> 
 
-        {/* </div>
-      </div> */}
+        </div>
+      </div>
 
       </Layout>
     </>
