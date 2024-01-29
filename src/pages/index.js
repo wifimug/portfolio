@@ -10,6 +10,18 @@ const IndexPage = ({data}) => {
     <>
       
       <Layout>
+      <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+      </div>
   
       <div className="columns-container">
         <div className="left-container">
@@ -24,7 +36,7 @@ const IndexPage = ({data}) => {
         <div className="right-container">
           <div className="right-container-txt">
           
-            <h3>Favourites ♡</h3>
+            <h3>Pinned Projects ♡</h3>
             <div className="blog-posts-container">
               <div className="blog-posts">
               {posts

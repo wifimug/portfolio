@@ -2,7 +2,7 @@
 path: "/mot-tracker/"
 date: 21/01/2024
 title: "MOT Tracker"
-skills: ["Java", "JavaSwing", "MySQL"]
+skills: ["Ruby on Rails", "PostgreSQL"]
 thumbnail: "../images/admin.jpg"
 featured: false
 weblink: "https://github.com/Sangie50/Security-and-Design-Team-project"

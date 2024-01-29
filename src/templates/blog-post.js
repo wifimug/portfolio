@@ -22,6 +22,11 @@ export default function Template({ data }) {
               <div className="project-link">
                 <a href={post.frontmatter.weblink} target="_blank">Click here to check out the project!</a>
               </div>
+              <div className="tags">
+                {post.frontmatter.skills.map((skill, index) => {
+                  return <p className="tag">{skill}</p>
+                })}
+              </div>
               <div
                 className="blog-post-content"
                 dangerouslySetInnerHTML={{ __html: post.html }}
@@ -45,6 +50,7 @@ export const pageQuery = graphql`
         date
         path
         title
+        skills
         weblink
       }
     }
